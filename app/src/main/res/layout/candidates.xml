@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:cardElevation="10dp"
+        >
+
+     <com.github.florent37.shapeofview.shapes.PolygonView
+         android:layout_width="60dp"
+         android:layout_height="60dp"
+         app:shape_polygon_noOfSides="6"
+         android:layout_marginStart="20dp"
+         android:layout_marginTop="5dp"
+         >
+
+         <ImageView
+             android:layout_width="60dp"
+             android:layout_height="60dp"
+              android:src="@drawable/freegrad"
+
+             />
+
+
+     </com.github.florent37.shapeofview.shapes.PolygonView>
+
+        <ng.com.hybrid.followup.TextViewImmacBytes
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
+            android:text="Tristan Kluivert"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+
+        <ng.com.hybrid.followup.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="40dp"
+            android:text="President of the federal republic of nigeria"
+            android:textSize="16sp"
+            />
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="2dp"
+            android:background="#cfcdcd"
+            android:layout_marginTop="101dp"
+            android:layout_marginStart="130dp"
+            />
+
+        <ng.com.hybrid.followup.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="120dp"
+            android:text="Mathematics/Statistics"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+
+        <ng.com.hybrid.followup.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="160dp"
+            android:text="Corruption, Crime, Education,
+ Social amenities"
+            />
+
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/freegrad"
+
+            />
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="2dp"
+            android:background="#cfcdcd"
+            android:layout_marginTop="235dp"
+            android:layout_marginStart="130dp"
+            />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="243dp"
+                android:layout_marginStart="170dp"
+                android:src="@drawable/ic_thumb_up_grey_500"
+                />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="205dp"
+            android:layout_marginTop="248dp"
+            android:text="24k"
+            />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="245dp"
+            android:layout_marginStart="250dp"
+            android:src="@drawable/ic_remove_red_eye_grey_500"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="285dp"
+            android:layout_marginTop="248dp"
+            android:text="34k"
+            />
+
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="246dp"
+            android:layout_marginStart="340dp"
+            android:src="@drawable/ic_message_grey_500"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="370dp"
+            android:layout_marginTop="248dp"
+            android:text="4k"
+            />
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="2dp"
+            android:background="#cfcdcd"
+            android:layout_marginTop="278dp"
+            android:layout_marginStart="130dp"
+            />
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
