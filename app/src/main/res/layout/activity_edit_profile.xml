@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/freegrad"
+    tools:context=".EditProfile">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        app:srcCompat="@drawable/bac"
+       android:id="@+id/gobac"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/avatar"
+        android:id="@+id/newImage"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="2dp"
+        />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp"
+        android:id="@+id/cdname"
+        >
+        <EditText
+            android:id="@+id/newname"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:hint="Username"
+            android:textSize="20sp"
+            />
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:textColor="@color/white"
+        android:text="State"
+        android:textSize="20sp"
+        android:layout_marginStart="40dp"
+        />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    android:id="@+id/tvspinner"
+    />
+
+    <Spinner
+        android:id="@+id/spinstate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+         android:backgroundTint="@color/white"
+        ></Spinner>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/white"
+        android:text="Gender"
+        android:textSize="20sp"
+        android:layout_marginEnd="30dp"
+        />
+
+    <Spinner
+        android:id="@+id/spigender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/white"
+
+        ></Spinner>
+    <TextView
+        android:id="@+id/tvgenda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+
+    <ng.com.hybrid.followup.TextViewImmacBytes
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginStart="45dp"
+        android:text="Date Of Birth"
+        />
+
+    <EditText
+        android:id="@+id/dedialog"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="440dp"
+        android:layout_marginStart="30dp"
+        android:hint="12/3/2019"
+        android:focusable="false"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/editstyle"
+        />
+
+   <android.support.v7.widget.CardView
+       android:id="@+id/btnsave"
+       android:layout_width="160dp"
+       android:layout_height="50dp"
+       android:layout_centerHorizontal="true"
+       app:cardElevation="10dp"
+       app:cardCornerRadius="30dp"
+       android:layout_alignParentBottom="true"
+       android:layout_marginBottom="50dp"
+       >
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:text="Save"
+           android:textSize="20sp"
+           />
+
+   </android.support.v7.widget.CardView>
+
+</RelativeLayout>

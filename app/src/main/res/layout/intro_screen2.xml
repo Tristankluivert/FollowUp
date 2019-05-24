@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.github.florent37.shapeofview.shapes.DiagonalView
+        android:layout_width="420dp"
+        android:layout_height="500dp"
+        app:shape_diagonal_angle="20"
+        app:shape_diagonal_position="bottom"
+        app:shape_diagonal_direction="left"
+        >
+        <ImageView
+            android:layout_width="420dp"
+            android:layout_height="500dp"
+            android:src="@drawable/nigeria"
+            android:scaleType="center"
+            />
+    </com.github.florent37.shapeofview.shapes.DiagonalView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Say your mind and connect with your leaders"
+        android:layout_marginStart="100dp"
+        android:textSize="20sp"
+        />
+
+</RelativeLayout>

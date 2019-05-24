@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntroScreen">
+
+    <ImageView
+        android:id="@+id/bgone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/business"
+        android:scaleType="centerCrop"
+        />
+
+    <ng.com.hybrid.followup.TextViewImmacBytes
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Express yourself on political matters."
+        android:layout_marginStart="20dp"
+        android:textSize="25sp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/white"
+        />
+
+    <LinearLayout
+        android:id="@+id/circle"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circleangle"
+        android:layout_marginStart="70dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="170dp"
+        >
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="1dp">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/angle2"
+                />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/bag"
+                android:paddingLeft="3dp"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
+        <ng.com.hybrid.followup.MyTextView
+            android:id="@+id/signupforfree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up For Free"
+            android:textSize="22dp"
+            android:textColor="#fff"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"/>
+    </LinearLayout>
+
+
+   <Button
+       android:id="@+id/cont"
+       android:layout_width="160dp"
+       android:layout_height="50dp"
+      android:layout_marginStart="30dp"
+       android:layout_alignParentBottom="true"
+       android:layout_marginBottom="100dp"
+       android:background="@drawable/buttonstyle"
+       android:textColor="@color/white"
+       android:text="Go On"
+       android:fontFamily="sans-serif-light"
+       />
+
+</RelativeLayout>

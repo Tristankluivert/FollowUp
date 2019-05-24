@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/img"
+    tools:context=".SignUp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#871976d2">
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/authscreen_background"
+        android:elevation="10dp"
+        android:id="@+id/authback"
+        >
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:hint="Email"
+            android:backgroundTint="@color/colorGray"
+            android:inputType="textEmailAddress"
+            android:textSize="18sp"
+            />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="42dp"
+            android:src="@drawable/ic_email_grey_400_24dp"
+            android:layout_marginStart="20dp"
+            />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:hint="Password"
+            android:backgroundTint="@color/colorGray"
+            android:inputType="textPassword"
+            android:textSize="18sp"
+            />
+
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="115dp"
+            android:src="@drawable/ic_remove_red_eye_grey_400_24dp"
+            android:layout_marginStart="20dp"
+            />
+
+
+        <EditText
+            android:id="@+id/password2"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="170dp"
+            android:hint="Confirm Password"
+            android:backgroundTint="@color/colorGray"
+            android:inputType="textPassword"
+            android:textSize="18sp"
+            />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="185dp"
+            android:src="@drawable/ic_remove_red_eye_grey_400_24dp"
+            android:layout_marginStart="20dp"
+            />
+
+        <ng.com.hybrid.followup.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to FollowUp"
+            android:layout_marginTop="250dp"
+            android:layout_marginStart="30dp"
+            android:textSize="20sp"
+            android:textColor="@color/blue_600"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/signupfab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="300dp"
+            app:elevation="10dp"
+            app:rippleColor="@color/blue_700"
+            app:backgroundTint="@color/blue_600"
+            android:layout_marginEnd="30dp"
+            app:fabCustomSize="60dp"
+            app:srcCompat="@drawable/ic_keyboard_arrow_right"
+            />
+
+
+    </RelativeLayout>
+
+    <ng.com.hybrid.followup.TextViewImmacBytes
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="450dp"
+        android:textColor="@color/white"
+        android:text="Already have an account?"
+        android:textSize="18sp"
+        android:id="@+id/text1"
+        />
+    <ng.com.hybrid.followup.TextViewImmacBytes
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="480dp"
+        android:textColor="@color/white"
+        android:text="Click there to login"
+        android:id="@+id/text2"
+        android:textSize="18sp"
+        />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/signupcard"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        >
+
+        <ng.com.hybrid.followup.TextViewImmacBytes
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Sign Up"
+            android:textSize="18sp"
+            />
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
