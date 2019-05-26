@@ -73,7 +73,7 @@ public class Profile extends AppCompatActivity {
                 Intent bc = new Intent(getApplicationContext(),MainActivity.class);
                 bc.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(bc);
-                Animatoo.animateFade(Profile.this);
+                Animatoo.animateSlideLeft(Profile.this);
                 finish();
 
             }
