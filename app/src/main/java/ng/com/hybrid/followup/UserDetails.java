@@ -332,6 +332,12 @@ public class UserDetails extends AppCompatActivity {
 
             Toasty.warning(getApplicationContext(), "Enter your last name please", Toast.LENGTH_SHORT, true).show();
 
+        }else if(userbod.isEmpty()) {
+            Toasty.warning(getApplicationContext(), "Date Of Birth please", Toast.LENGTH_SHORT, true);
+        }else if(userstate.isEmpty()) {
+            Toasty.warning(getApplicationContext(), "Your state please", Toast.LENGTH_SHORT, true);
+        }else if(mygender.isEmpty()){
+            Toasty.warning(getApplicationContext(), "Your gender please", Toast.LENGTH_SHORT, true);
         } else {
 
             loadingBar.setTitle("Saving Information");
