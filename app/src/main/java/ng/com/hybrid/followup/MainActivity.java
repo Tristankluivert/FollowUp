@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-      // FirebaseApp.initializeApp(this);
+        //FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
 
@@ -262,10 +262,10 @@ public class MainActivity extends AppCompatActivity
             switch (pos) {
 
                 case 0:
-                    return SecondFragment.newInstance(1);
+                    return HomeFragment.newInstance(1);
 
                 case 1:
-                    return FirstFragment.newInstance(2);
+                    return LikesFragment.newInstance(2);
                 case 2:
                     return SecondFragment.newInstance(3);
             }

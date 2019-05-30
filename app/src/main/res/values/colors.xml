@@ -16,9 +16,11 @@
     <color name="green">#67ffae</color>
     <color name="blue">#6785ff</color>
     <color name="colorOrange">#F68159</color>
-    <color name="colorLightGray">#a6abae</color>
+    <color name="colorLightGray">#A6ABAE</color>
     <color name="colorBackroundWhite">#f0f2ea</color>
     <color name="colorGray">#495C67</color>
+    <color name="dark_gray">#80a39f9f</color>
+    <color name="light_gray">#80dadada</color>
 
     <color name="bg_screen1">#ffffff</color>
     <color name="bg_screen2">#ffffff</color>
