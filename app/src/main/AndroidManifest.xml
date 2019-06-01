@@ -37,9 +37,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UserDetails"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".Login"
             android:theme="@style/AppTheme" />
         <activity
@@ -55,6 +52,9 @@
         <activity
             android:name=".EditProfile"
             android:theme="@style/AppTheme" />
+        <activity android:name=".UserDetails"
+            android:theme="@style/AppTheme"
+            />
     </application>
 
 </manifest>

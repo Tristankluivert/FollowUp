@@ -99,16 +99,16 @@ public class Profile extends AppCompatActivity {
                 if(dataSnapshot.exists()){
                     progressDialog.dismiss();
                     String myProfileImage = dataSnapshot.child("profileimage").getValue().toString();
-                    String myusername = dataSnapshot.child("username").getValue().toString();
+                    String myusername = dataSnapshot.child("displayname").getValue().toString();
                     String myfirstname = dataSnapshot.child("firstname").getValue().toString();
                     String mylastname = dataSnapshot.child("lastname").getValue().toString();
-                    String mystate = dataSnapshot.child("State").getValue().toString();
-                    String mygender = dataSnapshot.child("gender").getValue().toString();
-                    String mydob = dataSnapshot.child("DOB").getValue().toString();
+                    String mystate = dataSnapshot.child("userstate").getValue().toString();
+                    String mygender = dataSnapshot.child("usergender").getValue().toString();
+                    String mydob = dataSnapshot.child("dob").getValue().toString();
 
                     Picasso.get().load(myProfileImage).placeholder(R.drawable.avatar).into(profilepic);
                     tvusername.setText(myusername);
-                    tvrealname.setText(myfirstname+mylastname);
+                    tvrealname.setText(myfirstname+" "+mylastname);
                     tvstate.setText(mystate);
                     tvgender.setText(mygender);
                     tvdate.setText(mydob);

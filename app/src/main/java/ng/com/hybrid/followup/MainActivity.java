@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
 
-                    if (dataSnapshot.hasChild("username")) {
-                        String fullname = dataSnapshot.child("username").getValue().toString();
+                    if (dataSnapshot.hasChild("displayname")) {
+                        String fullname = dataSnapshot.child("displayname").getValue().toString();
                         navname.setText(fullname);
                     }
                     if (dataSnapshot.hasChild("profileimage")) {

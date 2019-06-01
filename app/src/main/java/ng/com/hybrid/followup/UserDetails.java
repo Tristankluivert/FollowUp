@@ -4,9 +4,9 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -33,12 +34,12 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
-import java.util.Calendar;
-import java.util.HashMap;
 
+import java.util.Calendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import es.dmoral.toasty.Toasty;
+import ng.com.hybrid.followup.Model.UserModel;
 
 
 public class UserDetails extends AppCompatActivity {
@@ -50,7 +51,6 @@ public class UserDetails extends AppCompatActivity {
 
     private ProgressDialog loadingBar;
     private FirebaseAuth mAuth;
-    private DatabaseReference UsersRef;
     private StorageReference UserProfileImageRef;
     String currentUserID;
     final static int Gallery_Pick = 1;
@@ -59,6 +59,9 @@ public class UserDetails extends AppCompatActivity {
     private CardView btnsave;
     private TextView tvspin, tvgender;
     private CircleImageView userpic;
+    DatabaseReference UsersRef;
+    private String image;
+    private boolean isTaken=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +70,7 @@ public class UserDetails extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
-        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID);
+       UsersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID);
         UserProfileImageRef = FirebaseStorage.getInstance().getReference().child("Profile Images");
         loadingBar = new ProgressDialog(this);
 
@@ -79,7 +82,6 @@ public class UserDetails extends AppCompatActivity {
         firstname = findViewById(R.id.firstname);
         lastname = findViewById(R.id.lastname);
         spinnerstate = findViewById(R.id.spinnerstate);
-
 
 
 
@@ -200,13 +202,12 @@ public class UserDetails extends AppCompatActivity {
         });
 
 
-        UsersRef.addValueEventListener(new ValueEventListener() {
+      UsersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
 
                     if (dataSnapshot.hasChild("profileimage")) {
-
                         String image = dataSnapshot.child("profileimage").getValue().toString();
                         Picasso.get().load(image).placeholder(R.drawable.avatar).into(userpic);
                     } else {
@@ -273,24 +274,12 @@ public class UserDetails extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Uri> task) {
                         if (task.isSuccessful()) {
-
+                            loadingBar.dismiss();
                             Uri downloadUri = task.getResult();
-                            String link = downloadUri.toString();
-                            UsersRef.child("profileimage").setValue(link).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        //   Intent selfIntent = new Intent(getApplicationContext(), UserDetails.class);
-                                        //  startActivity(selfIntent);
-                                        loadingBar.dismiss();
-                                        Toasty.success(getApplicationContext(),"Profile Image Uploaded",Toast.LENGTH_SHORT,true).show();
-                                    }else{
-                                        loadingBar.dismiss();
-                                        String message = task.getException().getMessage();
-                                        Toasty.error(getApplicationContext(),"Error occured: "+message,Toast.LENGTH_SHORT,true).show();
-                                    }
-                                }
-                            });
+                            Picasso.get().load(downloadUri.toString()).into(userpic);
+                            image = downloadUri.toString();
+                            Toasty.success(getApplicationContext(),"Uploaded",Toast.LENGTH_SHORT,true).show();
+
                         } else {
                             // Handle failures
                             // ...
@@ -316,7 +305,7 @@ public class UserDetails extends AppCompatActivity {
         String userbod = datedialog.getText().toString();
         String userstate = tvspin.getText().toString();
         String mygender = tvgender.getText().toString();
-
+        String userId = mAuth.getUid();
         if (TextUtils.isEmpty(username)) {
             Toasty.warning(getApplicationContext(), "Enter your username please", Toast.LENGTH_SHORT, true).show();
 
@@ -344,30 +333,39 @@ public class UserDetails extends AppCompatActivity {
             loadingBar.setMessage("Please wait, while we are creating your new Account...");
             loadingBar.setCancelable(false);
             loadingBar.show();
-            HashMap userMap = new HashMap();
-            userMap.put("username", username);
-            userMap.put("firstname",myfirstname);
-            userMap.put("lastname", mylastname);
-            userMap.put("DOB",userbod);
-            userMap.put("State",userstate);
-            userMap.put("uid",currentUserID);
-            userMap.put("gender", mygender);
-            UsersRef.updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
+            UserModel user = new UserModel();
+            user.setDisplayname(username);
+            user.setDob(userbod);
+            user.setFirstname(myfirstname);
+            user.setLastname(mylastname);
+            user.setUsergender(mygender);
+            user.setUserid(currentUserID);
+            user.setUserstate(userstate);
+            user.setProfileimage(image);
+
+            UsersRef.setValue(user)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                loadingBar.dismiss();
+                                Toasty.success(getApplicationContext(),"success",Toast.LENGTH_SHORT,true).show();
+                                SendUserToMainActivity();
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
                 @Override
-                public void onComplete(@NonNull Task task) {
-                    if (task.isSuccessful()) {
-                        SendUserToMainActivity();
-                        Toasty.success(getApplicationContext(), "Details Stored.", Toast.LENGTH_LONG,true).show();
-                        loadingBar.dismiss();
-                    } else {
-                        String message = task.getException().getMessage();
-                        Toasty.error(getApplicationContext(), "Error Occured: " + message, Toast.LENGTH_SHORT,true).show();
-                        loadingBar.dismiss();
-                    }
+                public void onFailure(@NonNull Exception e) {
+                    loadingBar.dismiss();
+                    Toasty.error(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT,true).show();
                 }
             });
+
         }
     }
+
+
+
 
 
     private void SendUserToMainActivity() {
@@ -376,10 +374,6 @@ public class UserDetails extends AppCompatActivity {
         startActivity(mainIntent);
         finish();
     }
-
-
-
-
 
 
 

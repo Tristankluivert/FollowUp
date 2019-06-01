@@ -81,7 +81,6 @@ public class EditProfile extends AppCompatActivity {
 
         tvspin = findViewById(R.id.tvspinner);
      tvgenda = findViewById(R.id.tvgenda);
-         spingender = findViewById(R.id.spinstate);
          spingender = findViewById(R.id.spigender);
          edate = findViewById(R.id.dedialog);
         newname = findViewById(R.id.newname);
@@ -218,10 +217,10 @@ public class EditProfile extends AppCompatActivity {
                 if(dataSnapshot.exists()){
 
                     String myProfileImage = dataSnapshot.child("profileimage").getValue().toString();
-                    String myusername = dataSnapshot.child("username").getValue().toString();
-                    String mydob = dataSnapshot.child("DOB").getValue().toString();
-                   String mystate = dataSnapshot.child("State").getValue().toString();
-                   String mygen = dataSnapshot.child("gender").getValue().toString();
+                    String myusername = dataSnapshot.child("displayname").getValue().toString();
+                    String mydob = dataSnapshot.child("dob").getValue().toString();
+                   String mystate = dataSnapshot.child("userstate").getValue().toString();
+                   String mygen = dataSnapshot.child("usergender").getValue().toString();
 
                     Picasso.get().load(myProfileImage).placeholder(R.drawable.avatar).into(newImage);
                     edate.setText(mydob);
@@ -349,10 +348,10 @@ public class EditProfile extends AppCompatActivity {
     public void updateUser(String username, String strstate, String strgender, String strdate){
 
         HashMap userMap = new HashMap();
-        userMap.put("username",username);
-        userMap.put("state",strstate);
-        userMap.put("gender",strgender);
-        userMap.put("DOB",strdate);
+        userMap.put("displayname",username);
+        userMap.put("userstate",strstate);
+        userMap.put("usergender",strgender);
+        userMap.put("dob",strdate);
 
         edRef.updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
             @Override
