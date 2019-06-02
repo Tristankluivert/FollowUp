@@ -23,8 +23,7 @@
                 android:id="@+id/party"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-
-                android:src="@drawable/freegrad" />
+                android:src="@drawable/avatar" />
 
 
         </com.github.florent37.shapeofview.shapes.PolygonView>
@@ -109,8 +108,7 @@
             android:layout_width="120dp"
             android:layout_height="180dp"
             android:layout_alignTop="@+id/top"
-
-            android:src="@drawable/freegrad" />
+            android:src="@drawable/img" />
 
         <LinearLayout
             android:id="@+id/opt"
