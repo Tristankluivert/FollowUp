@@ -98,7 +98,7 @@ public class Profile extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
                     progressDialog.dismiss();
-                    String myProfileImage = dataSnapshot.child("profileimage").getValue().toString();
+                  //  String myProfileImage = dataSnapshot.child("profileimage").getValue().toString();
                     String myusername = dataSnapshot.child("displayname").getValue().toString();
                     String myfirstname = dataSnapshot.child("firstname").getValue().toString();
                     String mylastname = dataSnapshot.child("lastname").getValue().toString();
@@ -106,7 +106,18 @@ public class Profile extends AppCompatActivity {
                     String mygender = dataSnapshot.child("usergender").getValue().toString();
                     String mydob = dataSnapshot.child("dob").getValue().toString();
 
-                    Picasso.get().load(myProfileImage).placeholder(R.drawable.avatar).into(profilepic);
+                    if (dataSnapshot.hasChild("profileimage")) {
+                        String image = dataSnapshot.child("profileimage").getValue().toString();
+                        Picasso.get().load(image).placeholder(R.drawable.avatar).into(profilepic);
+                    } else {
+                        profilepic.setImageResource(R.drawable.avatar);
+                       /* Intent intent = new Intent(getApplicationContext(),PickPic.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        finish();*/
+                    }
+
+
                     tvusername.setText(myusername);
                     tvrealname.setText(myfirstname+" "+mylastname);
                     tvstate.setText(mystate);
